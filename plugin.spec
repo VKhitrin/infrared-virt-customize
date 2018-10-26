@@ -65,6 +65,12 @@ subparsers:
                      help: 'Packages to uninstall on guest disk image'
                      required: false
 
+                 update:
+                     type: Bool
+                     help: 'Update packages on guest disk image'
+                     default: False
+                     required: false
+
             - title: ansible facts
               options:
                   collect-ansible-facts:

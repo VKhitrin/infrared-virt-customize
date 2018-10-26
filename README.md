@@ -79,3 +79,9 @@ List of packages to be uninstalled from guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --uninstall package1,package2
 ```
+
+Update packages on guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --update yes
+```
+

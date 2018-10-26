@@ -4,5 +4,5 @@
 - name: Verify executor host
   import_playbook: "validate_executor.yml"
 
-- name: Cutsome guest disk images
+- name: Customize guest disk images
   import_playbook: "customize.yml"
