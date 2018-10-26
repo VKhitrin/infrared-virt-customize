@@ -90,3 +90,9 @@ Install packages on guest disk iamge on firstboot (required=False):
 infrared virt-customize --image '/path/to/image' --firstboot-install package1,package2
 ```
 
+#### Guest manipulation
+
+Run virt-customize commands from file on guest disk iamge on firstboot (required=False):
+```
+infrared virt-customize --image '/path/to/image' --commands-file /path/to/commands-file
+```

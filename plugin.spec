@@ -70,6 +70,11 @@ subparsers:
                      help: 'Packages to install on guest disk image during firstboot'
                      required: false
                      default: False
+                 commands-file:
+                     type: FileValue
+                     help: 'Customize commands to be executed from file'
+                     required: false
+                     default: False
 
             - title: ansible facts
               options:

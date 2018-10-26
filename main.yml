@@ -4,5 +4,8 @@
 - name: Verify executor host
   import_playbook: "validate_executor.yml"
 
-- name: Customize guest disk images
-  import_playbook: "customize.yml"
+- name: Package manipulation on guest disk image
+  import_playbook: "package_manipulation.yml"
+
+- name: Guest manipulation on guest disk image
+  import_playbook: "guest_manipulation.yml"

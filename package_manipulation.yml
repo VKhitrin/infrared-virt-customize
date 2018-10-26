@@ -1,4 +1,4 @@
-- name: Perform prerequsites on - {{ other.host.address }}
+- name: Performs package manipulations - {{ other.host.address }}
   hosts: "{{ other.host.address }}"
   vars_files:
     - vars/libguestfs.yml

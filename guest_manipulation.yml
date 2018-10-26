@@ -1,0 +1,14 @@
+- name: Performs guest manipulations - {{ other.host.address }}
+  hosts: "{{ other.host.address }}"
+  vars_files:
+    - vars/libguestfs.yml
+  any_errors_fatal: true
+  tasks:
+
+     - name: Perform commands from file
+       include_role:
+         name: commands_file
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when: other['commands']['file']
