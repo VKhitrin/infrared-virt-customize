@@ -1,0 +1,20 @@
+- name: Perform prerequsites on - {{ other.host.address }}
+  hosts: "{{ other.host.address }}"
+  any_errors_fatal: true
+  tasks:
+
+     - name: Install packages on guest disk image
+       include_role:
+         name: install_packages
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when: other.install is defined
+
+     - name: Install packages on guest disk image
+       include_role:
+         name: uninstall_packages
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when: other.uninstall is defined

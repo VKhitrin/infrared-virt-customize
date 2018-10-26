@@ -1,0 +1,2 @@
+LIBGUESTFS_BACKEND: direct
+LIBGUESTFS_BACKEND_SETTINGS: "{{ lookup( 'env', 'LIBGUESTFS_BACKEND_SETTINGS')|default('force_tcg', true) }}"

@@ -1,0 +1,16 @@
+- name: Perform prerequsites on - {{ other.host.address }}
+  hosts: "{{ other.host.address }}"
+  any_errors_fatal: true
+  tasks:
+
+     - name: Install libguestfs
+       yum:
+         name: libguestfs-tools-c
+         state: latest
+
+     - name: Verify existence of images on executor host
+       stat:
+         path: "{{ item }}"
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       failed_when: file_existence['stat']['exists'] == false
+       register: file_existence
