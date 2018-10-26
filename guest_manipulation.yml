@@ -11,4 +11,16 @@
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
-       when: other['commands']['file']
+       when: 
+         - other['commands'] is defined
+         - other['commands']['file']
+
+     - name: Perform copy inside guest disk image
+       include_role:
+         name: copy_inside
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['copy'] is defined
+         - other['copy']['inside']

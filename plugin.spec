@@ -74,7 +74,10 @@ subparsers:
                      type: FileValue
                      help: 'Customize commands to be executed from file'
                      required: false
-                     default: False
+                 copy-inside:
+                     type: Value
+                     help: 'Copy files inside guest disk image'
+                     required: false
 
             - title: ansible facts
               options:

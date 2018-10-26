@@ -92,7 +92,12 @@ infrared virt-customize --image '/path/to/image' --firstboot-install package1,pa
 
 #### Guest manipulation
 
-Run virt-customize commands from file on guest disk iamge on firstboot (required=False):
+Run virt-customize commands from file on guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --commands-file /path/to/commands-file
+```
+
+Copy files inside guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --copy-inside /path/to/source:/path/to/dest
 ```
