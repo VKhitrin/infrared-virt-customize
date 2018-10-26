@@ -34,7 +34,7 @@ infrared plugin add https://github.com/VKhitrin/infrared-virt-customize
 
 **See notes on the top for some limitations in place at the moment**
 
-## General arguments
+#### General arguments
 
 List of guest disk image locations on host (required=True)
 
@@ -66,7 +66,7 @@ Enabled virt-customize's debug (required=False):
 infrared virt-customize --trace yes
 ```
 
-## Package manipulation
+#### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):
 
