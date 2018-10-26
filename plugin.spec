@@ -35,18 +35,15 @@ subparsers:
                       type: Value
                       help: 'Amount of memory to be assigned to guest disk image'
                       required: false
-
                   cpu:
                       type: Value
                       help: 'Amount of cpu to be assigned to guest disk image'
                       required: false
-
                   verbosity:
                       type: Bool
                       help: 'Enable virt-customize verbosity'
                       default: False
                       required: false
-
                   trace:
                       type: Bool
                       help: 'Enable virt-customize trace'
@@ -59,17 +56,20 @@ subparsers:
                      type: Value
                      help: 'Packages to install on guest disk image'
                      required: false
-
                  uninstall:
                      type: Value
                      help: 'Packages to uninstall on guest disk image'
                      required: false
-
                  update:
                      type: Bool
                      help: 'Update packages on guest disk image'
                      default: False
                      required: false
+                 firstboot-install:
+                     type: Value
+                     help: 'Packages to install on guest disk image during firstboot'
+                     required: false
+                     default: False
 
             - title: ansible facts
               options:

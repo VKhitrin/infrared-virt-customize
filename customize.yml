@@ -11,7 +11,7 @@
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
-       when: other.install is defined
+       when: other['install'] is defined
 
      - name: Uninstall packages on guest disk image
        include_role:
@@ -19,7 +19,7 @@
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
-       when: other.uninstall is defined
+       when: other['uninstall'] is defined
 
      - name: Update packages on guest disk image
        include_role:
@@ -27,4 +27,12 @@
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
-       when: other.update
+       when: other['update']
+
+     - name: Install packages on guest disk image during firstboot
+       include_role:
+         name: firstboot_install_packages
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when: other['firstboot']['install']
