@@ -106,3 +106,8 @@ Copy files from host to guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path/to/dest
 ```
+
+Delete files in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --delete /path/to/file
+```

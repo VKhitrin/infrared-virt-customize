@@ -82,6 +82,9 @@ subparsers:
                      type: Value
                      help: 'Copy files inside guest disk image'
                      required: false
+                 delete:
+                     type: Value
+                     help: 'Delete files/directories on guest disk image'
 
             - title: ansible facts
               options:
