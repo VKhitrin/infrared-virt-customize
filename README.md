@@ -101,3 +101,8 @@ Copy files inside guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --copy-inside /path/to/source:/path/to/dest
 ```
+
+Copy files from host to guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path/to/dest
+```

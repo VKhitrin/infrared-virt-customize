@@ -1,5 +1,6 @@
 - name: Performs package manipulations - {{ other.host.address }}
   hosts: "{{ other.host.address }}"
+  gather_facts: no
   vars_files:
     - vars/libguestfs.yml
   any_errors_fatal: true

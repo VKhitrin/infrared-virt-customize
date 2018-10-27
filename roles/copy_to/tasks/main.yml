@@ -1,0 +1,27 @@
+- name: Parse file locations
+  set_fact:
+    host_src_file: "{{ other['copy']['to'].split(':')[0] }}"
+    guest_dest_file: "{{ other['copy']['to'].split(':')[1] }}"
+  failed_when: other['copy']['to'].split(':')[1] is not defined
+
+- name: Verify file existence on executor host
+  stat:
+    path: "{{ host_src_file }}"
+  failed_when: file_existence['stat']['exists'] == false
+  register: file_existence
+
+- name: Assign host src and guest dest files to virt-customize arg
+  set_fact:
+    _vc_args: "{{ hostvars['localhost']['_vc_args'] }} --copy-in {{ host_src_file }}:{{ guest_dest_file }}"
+
+- name: Print virt-customize command
+  debug:
+    msg: "virt-customize {{ _vc_args }} -a {{ image }}"
+
+- name: Execute command
+  shell: >
+    virt-customize {{ _vc_args }}
+    -a {{ image }}
+  environment:
+    LIBGUESTFS_BACKEND: "{{ LIBGUESTFS_BACKEND }}"
+    LIBGUESTFS_BACKEND_SETTINGS: "{{ LIBGUESTFS_BACKEND_SETTINGS }}"
