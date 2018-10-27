@@ -174,6 +174,10 @@ subparsers:
                      help: "Scrub build log of virt-customize"
                      default: False
                      required: false
+                 ssh-inject:
+                     type: Value
+                     help: "Inject SSH key to user inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

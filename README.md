@@ -137,6 +137,11 @@ Run command in guest disk iamge (required=False):
 infrared virt-customize --image '/path/to/image' --run-command command
 ```
 
+Inject SSH key to user in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --ssh-inject user:ssh_key
+```
+
 Set a timezone in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-timezone timezone

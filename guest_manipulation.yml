@@ -86,6 +86,16 @@
          - other['run'] is defined
          - other['run']['command'] is defined
 
+     - name: Inject SSH key to user in guest disk image
+       include_role:
+         name: ssh_inject
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['ssh'] is defined
+         - other['ssh']['inject'] is defined
+
      - name: Set a default timezone in guest disk image
        include_role:
          name: guest_timezone
