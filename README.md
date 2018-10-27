@@ -97,21 +97,6 @@ Run virt-customize commands from file on guest disk iamge (required=False):
 infrared virt-customize --image '/path/to/image' --commands-file /path/to/commands-file
 ```
 
-Copy files inside guest disk iamge (required=False):
-```
-infrared virt-customize --image '/path/to/image' --copy-inside /path/to/source:/path/to/dest
-```
-
-Copy files from infrared client to guest disk iamge (required=False):
-```
-infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path/to/dest
-```
-
-Delete files in guest disk iamge (required=False):
-```
-infrared virt-customize --image '/path/to/image' --delete /path/to/file
-```
-
 Execute a script on guest disk iamge on firstboot (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --firstboot /path/to/file
@@ -158,6 +143,21 @@ infrared virt-customize --image '/path/to/image' --selinux-relabel yes
 ```
 
 #### File manipulation
+
+Copy files inside guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --copy-inside /path/to/source:/path/to/dest
+```
+
+Copy files from infrared client to guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path/to/dest
+```
+
+Delete files in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --delete /path/to/file
+```
 
 Append line to file in guest disk iamge (required=False):
 ```

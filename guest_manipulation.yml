@@ -16,35 +16,6 @@
          - other['commands'] is defined
          - other['commands']['file'] is defined
 
-     - name: Perform copy from executor host to guest disk image
-       include_role:
-         name: copy_to
-       with_items: "{{ hostvars['localhost']['images'] }}"
-       loop_control:
-         loop_var: image
-       when:
-         - other['copy'] is defined
-         - other['copy']['to'] is defined
-
-     - name: Perform copy inside guest disk image
-       include_role:
-         name: copy_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
-       loop_control:
-         loop_var: image
-       when:
-         - other['copy'] is defined
-         - other['copy']['inside'] is defined
-
-     - name: Perform delete inside guest disk image
-       include_role:
-         name: delete_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
-       loop_control:
-         loop_var: image
-       when:
-         - other['delete'] is defined
-
      - name: Script file to be executed on guest disk image during firstboot
        include_role:
          name: firstboot_file

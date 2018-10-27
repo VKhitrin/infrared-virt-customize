@@ -145,6 +145,10 @@ subparsers:
                      type: Value
                      help: "Move file/directory inside guest disk image"
                      required: false
+                 scrub:
+                     type: Value
+                     help: "Scrub file inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:
