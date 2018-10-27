@@ -1,6 +1,6 @@
-- name: Assign run-command to virt-customize arg
+- name: Assign file to truncate in guest disk image to virt-customize arg
   set_fact:
-    _vc_args: "{{ hostvars['localhost']['_vc_args'] }} --run-command '{{ other['run']['command'] }}'"
+    _vc_args: "{{ hostvars['localhost']['_vc_args'] }} --truncate {{ other['truncate'] }}"
 
 - name: Print virt-customize command
   debug:

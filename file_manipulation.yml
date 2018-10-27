@@ -93,3 +93,12 @@
          loop_var: image
        when:
          - other['scrub'] is defined
+
+     - name: Truncate file in guest disk image
+       include_role:
+         name: truncate_inside
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['truncate'] is defined

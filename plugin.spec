@@ -149,6 +149,10 @@ subparsers:
                      type: Value
                      help: "Scrub file inside guest disk image"
                      required: false
+                 truncate:
+                     type: Value
+                     help: "Truncate file inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

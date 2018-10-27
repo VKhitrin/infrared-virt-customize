@@ -183,3 +183,14 @@ Move file/sdirectories in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --move-inside /path/to/source:/path/to/dest
 ```
+
+Scrub file in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --scrub /path/to/file
+```
+
+Truncate file to zero length in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --truncate /path/to/file
+```
+
