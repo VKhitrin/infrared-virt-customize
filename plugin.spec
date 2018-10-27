@@ -141,6 +141,10 @@ subparsers:
                      type: Value
                      help: "Creates directory inside guest disk image"
                      required: false
+                 move-inside:
+                     type: Value
+                     help: "Move file/directory inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

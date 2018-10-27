@@ -45,3 +45,13 @@
        when:
          - other['guest'] is defined
          - other['guest']['directory'] is defined
+
+     - name: Move file/directory in guest disk image
+       include_role:
+         name: move_inside
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['move'] is defined
+         - other['move']['inside'] is defined

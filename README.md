@@ -178,3 +178,8 @@ Create directories in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-directory /path/to/directory
 ```
+
+Move file/sdirectories in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --move-inside /path/to/source:/path/to/dest
+```
