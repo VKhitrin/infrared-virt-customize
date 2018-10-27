@@ -133,6 +133,10 @@ subparsers:
                      type: Value
                      help: "Change permissions to file inside guest disk image"
                      required: false
+                 guest-link:
+                     type: Value
+                     help: "Create symbolic link to file inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

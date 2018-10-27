@@ -1,0 +1,21 @@
+- name: Parse permission details
+  set_fact:
+    guest_target: "{{ other['guest']['link'].split(':')[0] }}"
+    guest_file: "{{ other['guest']['link'].split(':')[1] }}"
+  failed_when: other['guest']['link'].split(':')[1] is not defined
+
+- name: Assign permission details to virt-customize arg
+  set_fact:
+    _vc_args: "{{ hostvars['localhost']['_vc_args'] }} --link {{ guest_target }}:{{ guest_file }}"
+
+- name: Print virt-customize command
+  debug:
+    msg: "virt-customize {{ _vc_args }} -a {{ image }}"
+
+- name: Execute command
+  shell: >
+    virt-customize {{ _vc_args }}
+    -a {{ image }}
+  environment:
+    LIBGUESTFS_BACKEND: "{{ LIBGUESTFS_BACKEND }}"
+    LIBGUESTFS_BACKEND_SETTINGS: "{{ LIBGUESTFS_BACKEND_SETTINGS }}"

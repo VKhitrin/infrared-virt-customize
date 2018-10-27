@@ -161,10 +161,15 @@ infrared virt-customize --image '/path/to/image' --selinux-relabel yes
 
 Append line to file in guest disk iamge (required=False):
 ```
-infrared virt-customize --image '/path/to/image' --append-line file:line
+infrared virt-customize --image '/path/to/image' --append-line /path/to/file:line
 ```
 
-Change permission to file in guest disk iamge (required=False):
+Change permission to file in guest disk iamge \[can be decimal or octal permission\] (required=False):
 ```
-infrared virt-customize --image '/path/to/image' --guest-permission permission:file
+infrared virt-customize --image '/path/to/image' --guest-permission permission:/path/to/file
+```
+
+Create symbolic link to file in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --guest-link /path/to/target:/path/to/file
 ```

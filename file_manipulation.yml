@@ -25,3 +25,13 @@
        when:
          - other['guest'] is defined
          - other['guest']['permission'] is defined
+
+     - name: Create symbolic likn to file in guest disk image
+       include_role:
+         name: guest_link
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['guest'] is defined
+         - other['guest']['link'] is defined
