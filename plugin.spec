@@ -199,6 +199,10 @@ subparsers:
                      type: Value
                      help: "Credentials used to subscribe to subscription manager"
                      required: false
+                 sm-attach:
+                     type: Value
+                     help: "Attach pool to guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

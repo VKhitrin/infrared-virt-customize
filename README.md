@@ -83,6 +83,11 @@ Register to subscription manager \[required both --sm-register and --sm-credenti
 infrared virt-customize --image '/path/to/image' --sm-register yes --sm-credentials user@email.com:password
 ```
 
+Attach a subscription to guest disk image:
+```
+infrared virt-customize --image '/path/to/image' --sm-attach poolid
+```
+
 #### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):
