@@ -1,0 +1,17 @@
+- name: Performs package manipulations - {{ other.host.address }}
+  hosts: "{{ other.host.address }}"
+  gather_facts: no
+  vars_files:
+    - vars/libguestfs.yml
+  any_errors_fatal: true
+  tasks:
+
+     - name: Append line to file in guest disk image
+       include_role:
+         name: append_line
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['append'] is defined
+         - other['append']['line'] is defined

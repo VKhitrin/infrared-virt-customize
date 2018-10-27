@@ -125,6 +125,10 @@ subparsers:
                      type: Bool
                      help: "Relabel SELinux file contexts inside guest disk image"
                      required: false
+                 append-line:
+                     type: Value
+                     help: "Append line to file inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

@@ -9,3 +9,6 @@
 
 - name: Guest manipulation on guest disk image
   import_playbook: "guest_manipulation.yml"
+
+- name: File manipulation on guest disk image
+  import_playbook: "file_manipulation.yml"
