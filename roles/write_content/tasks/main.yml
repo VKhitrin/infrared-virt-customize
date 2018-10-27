@@ -6,7 +6,7 @@
 
 - name: Assign file details to virt-customize arg
   set_fact:
-    _vc_args: "{{ hostvars['localhost']['_vc_args'] } --write {{ guest_file }}:{{ file_content }}"
+    _vc_args: "{{ hostvars['localhost']['_vc_args'] }} --write {{ guest_file }}:{{ file_content }}"
 
 - name: Print virt-customize command
   debug:

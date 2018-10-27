@@ -37,6 +37,14 @@
              _vc_args: "{{ _vc_args }} -x"
            when: other['trace']
 
+         - name: Scrub build log of virt-customize
+           set_fact:
+             _vc_args: "{{ _vc_args }} --no-logfile"
+           when:
+             - other['scrub'] is defined
+             - other['scrub']['build'] is defined
+             - other['scrub']['build']['log']
+
          - name: Parse images path
            set_fact:
              images: "{{ other['image'].split(',') }}"

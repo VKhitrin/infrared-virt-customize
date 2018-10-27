@@ -66,6 +66,11 @@ Skip libguestfs tools installation on executor host (required=False):
 infrared virt-customize --skip-install-tools yes
 ```
 
+Scrub build log of virt-customize from guest disk image (required=False):
+```
+infrared virt-customize --scrub-build-log yes
+```
+
 #### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):

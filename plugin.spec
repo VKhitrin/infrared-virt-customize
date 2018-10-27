@@ -169,6 +169,11 @@ subparsers:
                      type: Value
                      help: "Write content into a file from inside guest disk image"
                      required: false
+                 scrub-build-log:
+                     type: Bool
+                     help: "Scrub build log of virt-customize"
+                     default: False
+                     required: false
 
             - title: ansible facts
               options:
