@@ -139,5 +139,10 @@ infrared virt-customize --image '/path/to/image' --root-password password
 
 Run script (located on disk-image) in guest disk iamge (required=False):
 ```
-infrared virt-customize --image '/path/to/image' --run script
+infrared virt-customize --image '/path/to/image' --run-script script
+```
+
+Run command in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --run-command command
 ```

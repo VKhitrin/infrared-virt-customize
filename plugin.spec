@@ -108,6 +108,10 @@ subparsers:
                      type: Value
                      help: "Run script inside guest disk image"
                      required: false
+                 run-command:
+                     type: Value
+                     help: "Run command inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:
