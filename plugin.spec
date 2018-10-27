@@ -49,6 +49,11 @@ subparsers:
                       help: 'Enable virt-customize trace'
                       default: False
                       required: false
+                  skip-install-tools:
+                      type: Bool
+                      help: 'Skip installation of libguestfs tools on executor node'
+                      default: False
+                      required: false
 
             - title: virt-customize actions
               options:
@@ -111,6 +116,10 @@ subparsers:
                  run-command:
                      type: Value
                      help: "Run command inside guest disk image"
+                     required: false
+                 guest-timezone:
+                     type: Value
+                     help: "Set the default timezone inside guest disk image"
                      required: false
 
             - title: ansible facts

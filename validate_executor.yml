@@ -7,6 +7,10 @@
        yum:
          name: libguestfs-tools-c
          state: latest
+       when:
+         - other['skip'] is defined
+         - other['skip']['install'] is defined
+         - other['skip']['install']['tools'] == false
 
      - name: Verify existence of images on executor host
        stat:

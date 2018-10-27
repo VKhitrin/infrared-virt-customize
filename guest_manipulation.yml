@@ -114,3 +114,13 @@
        when:
          - other['run'] is defined
          - other['run']['command'] is defined
+
+     - name: Set a default timezone in guest disk image
+       include_role:
+         name: guest_timezone
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['guest'] is defined
+         - other['guest']['timezone'] is defined

@@ -15,27 +15,27 @@
        block:
          - name: Create variable
            set_fact:
-             _vc_args: ""
+             _vc_args: null
 
          - name: Set memory parameter in virt-customize
            set_fact:
              _vc_args: "{{ _vc_args }} -m {{ other['memory'] }}"
-           when: other.memory is defined
+           when: other['memory'] is defined
 
          - name: Set memory parameter in virt-customize
            set_fact:
              _vc_args: "{{ _vc_args }} -smp {{ other['cpu'] }}"
-           when: other.cpu is defined
+           when: other['cpu'] is defined
 
          - name: Set verbosity parameter in virt-customize
            set_fact:
              _vc_args: "{{ _vc_args }} -v"
-           when: other.verbosity
+           when: other['verbosity']
 
          - name: Set debug/trace parameter in virt-customize
            set_fact:
              _vc_args: "{{ _vc_args }} -x"
-           when: other.trace
+           when: other['trace']
 
          - name: Parse images path
            set_fact:

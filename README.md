@@ -37,33 +37,33 @@ infrared plugin add https://github.com/VKhitrin/infrared-virt-customize
 #### General arguments
 
 List of guest disk image locations on host (required=True)
-
 ```
 infrared virt-customize --image '/path/to/image','/path/to/image2'
 ```
 
 Enable N ≥ 2 vCPUs during execution (required=False):
-
 ```
 infrared virt-customize --cpu N
 ```
 
 Enable N amount in MBs of memory during execution (required=False):
-
 ```
 infrared virt-customize --memory N
 ```
 
 Enable virt-customize's verbosity (required=False):
-
 ```
 infrared virt-customize --verbosity yes
 ```
 
 Enabled virt-customize's debug (required=False):
-
 ```
 infrared virt-customize --trace yes
+```
+
+Skip libguestfs tools installation on executor host (required=False):
+```
+infrared virt-customize --skip-install-tools yes
 ```
 
 #### Package manipulation
@@ -145,4 +145,8 @@ infrared virt-customize --image '/path/to/image' --run-script script
 Run command in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --run-command command
+```
+Set a timezone in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --guest-timezone timezone
 ```
