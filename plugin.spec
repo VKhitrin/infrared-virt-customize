@@ -129,6 +129,10 @@ subparsers:
                      type: Value
                      help: "Append line to file inside guest disk image"
                      required: false
+                 guest-permission:
+                     type: Value
+                     help: "Change permissions to file inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

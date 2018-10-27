@@ -15,3 +15,13 @@
        when:
          - other['append'] is defined
          - other['append']['line'] is defined
+
+     - name: Change file/directory permission in guest disk image
+       include_role:
+         name: guest_permission
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['guest'] is defined
+         - other['guest']['permission'] is defined

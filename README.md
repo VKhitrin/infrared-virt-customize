@@ -163,3 +163,8 @@ Append line to file in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --append-line file:line
 ```
+
+Change permission to file in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --guest-permission permission:file
+```
