@@ -186,6 +186,10 @@ subparsers:
                        - "md5"
                        - "sha256"
                        - "sha512"
+                 edit:
+                     type: Value
+                     help: "Edit a file inside guest disk image using perl's regular expressions"
+                     required: false
 
             - title: ansible facts
               options:

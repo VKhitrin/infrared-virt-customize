@@ -228,3 +228,8 @@ Write content to file in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --write-content /path/to/file:content
 ```
+
+Edit file's content using perl's regular expression in guest disk image:
+```
+infrared virt-customize --image '/path/to/image' --edit /path/to/file:perl_reg_expression
+```
