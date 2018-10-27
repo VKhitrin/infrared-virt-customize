@@ -121,6 +121,10 @@ subparsers:
                      type: Value
                      help: "Set the default timezone inside guest disk image"
                      required: false
+                 selinux-relabel:
+                     type: Bool
+                     help: "Relabel SELinux file contexts inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

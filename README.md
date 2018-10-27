@@ -146,7 +146,13 @@ Run command in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --run-command command
 ```
+
 Set a timezone in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-timezone timezone
+```
+
+Relabel SELinux file contexets in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --selinux-relabel yes
 ```

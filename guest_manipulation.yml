@@ -124,3 +124,13 @@
        when:
          - other['guest'] is defined
          - other['guest']['timezone'] is defined
+
+     - name: Relabel SELinux file contexts in guest disk image
+       include_role:
+         name: selinux_relabel
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['selinux'] is defined
+         - other['selinux']['relabel']
