@@ -190,6 +190,15 @@ subparsers:
                      type: Value
                      help: "Edit a file inside guest disk image using perl's regular expressions"
                      required: false
+                 sm-register:
+                     type: Bool
+                     help: "Starts the registration process with subscription manager"
+                     default: False
+                     required: false
+                 sm-credentials:
+                     type: Value
+                     help: "Credentials used to subscribe to subscription manager"
+                     required: false
 
             - title: ansible facts
               options:

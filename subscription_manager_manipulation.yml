@@ -1,0 +1,18 @@
+- name: Performs Subscription Manager manipulations - {{ other.host.address }}
+  hosts: "{{ other.host.address }}"
+  gather_facts: no
+  vars_files:
+    - vars/libguestfs.yml
+  any_errors_fatal: true
+  tasks:
+
+     - name: Register to subscription manager
+       include_role:
+         name: subscription_manager_manipulation/register_to_subscription_manager
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+        - other['sm'] is defined
+        - other['sm']['register']
+        - other['sm']['credentials'] is defined

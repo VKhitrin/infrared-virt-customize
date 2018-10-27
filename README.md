@@ -76,6 +76,13 @@ Set password encrypthion method when performing password tasks (required=False):
 infrared virt-customize --password-crypto md5|sha256|sha512
 ```
 
+#### Subscription Manager manipulation
+
+Register to subscription manager \[required both --sm-register and --sm-credentials\] (required=False):
+```
+infrared virt-customize --image '/path/to/image' --sm-register yes --sm-credentials user@email.com:password
+```
+
 #### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):

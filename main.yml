@@ -4,6 +4,9 @@
 - name: Verify executor host
   import_playbook: "validate_executor.yml"
 
+- name: Subscription Manager manipulation on guest disk image
+  import_playbook: "subscription_manager_manipulation.yml"
+
 - name: Package manipulation on guest disk image
   import_playbook: "package_manipulation.yml"
 
