@@ -153,6 +153,10 @@ subparsers:
                      type: Value
                      help: "Truncate file inside guest disk image"
                      required: false
+                 truncate-recursive:
+                     type: Value
+                     help: "Truncate files/directories recursively inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:
