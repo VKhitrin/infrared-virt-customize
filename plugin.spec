@@ -178,6 +178,14 @@ subparsers:
                      type: Value
                      help: "Inject SSH key to user inside guest disk image"
                      required: false
+                 password-crypto:
+                     type: Value
+                     help: "Set password encryption method"
+                     required: false
+                     choices:
+                       - "md5"
+                       - "sha256"
+                       - "sha512"
 
             - title: ansible facts
               options:

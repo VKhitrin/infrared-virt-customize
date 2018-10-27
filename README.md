@@ -71,6 +71,11 @@ Scrub build log of virt-customize from guest disk image (required=False):
 infrared virt-customize --scrub-build-log yes
 ```
 
+Set password encrypthion method when performing password tasks (required=False):
+```
+infrared virt-customize --password-crypto md5|sha256|sha512
+```
+
 #### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):

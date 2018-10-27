@@ -2,6 +2,13 @@
   set_fact:
     _vc_args: "{{ hostvars['localhost']['_vc_args'] }} --root-password password:{{ other['root']['password'] }}"
 
+- name: Set password crypto method
+  set_fact:
+    _vc_args: "{{ _vc_args }} --password-crypto {{ other['password']['crypto'] }}"
+  when:
+    - other['password'] is defined
+    - other['password']['crypto'] is defined
+
 - name: Print virt-customize command
   debug:
     msg: "virt-customize {{ _vc_args }} -a {{ image }}"

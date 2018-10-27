@@ -1,5 +1,6 @@
 - name: Perform prerequsites on - {{ other.host.address }}
   hosts: "{{ other.host.address }}"
+  gather_facts: no
   any_errors_fatal: true
   tasks:
 
