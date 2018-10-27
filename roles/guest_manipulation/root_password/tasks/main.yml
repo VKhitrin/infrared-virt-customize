@@ -1,0 +1,17 @@
+- name: Assign root details to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --root-password password:{{ other['root']['password'] }}"
+
+- name: Set password crypto method
+  set_fact:
+    vc_args: "{{ _vc_args }} --password-crypto {{ other['password']['crypto'] }}"
+  when:
+    - other['password'] is defined
+    - other['password']['crypto'] is defined
+
+- name: Set root's password in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

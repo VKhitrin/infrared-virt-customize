@@ -8,7 +8,7 @@
 
      - name: Install packages on guest disk image
        include_role:
-         name: install_packages
+         name: package_manipulation/install_packages
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -16,7 +16,7 @@
 
      - name: Uninstall packages on guest disk image
        include_role:
-         name: uninstall_packages
+         name: package_manipulation/uninstall_packages
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -24,7 +24,7 @@
 
      - name: Update packages on guest disk image
        include_role:
-         name: update_packages
+         name: package_manipulation/update_packages
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -32,7 +32,7 @@
 
      - name: Install packages on guest disk image during firstboot
        include_role:
-         name: firstboot_install_packages
+         name: package_manipulation/firstboot_install_packages
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image

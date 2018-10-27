@@ -1,0 +1,10 @@
+- name: Assign firstboot command to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --firstboot-command {{ other['firstboot']['command'] }}"
+
+- name: Execute a command on guest disk image on firstboot
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

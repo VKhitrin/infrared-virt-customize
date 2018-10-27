@@ -1,0 +1,10 @@
+- name: Assign packages to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --firstboot-install {{ other['firstboot']['install'] }}"
+
+- name: Install packages on guest disk image on firstboot
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

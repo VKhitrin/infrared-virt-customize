@@ -1,0 +1,16 @@
+- name: Parse permission details
+  set_fact:
+    file_permission: "{{ other['guest']['permission'].split(':')[0] }}"
+    guest_file: "{{ other['guest']['permission'].split(':')[1] }}"
+  failed_when: other['guest']['permission'].split(':')[1] is not defined
+
+- name: Assign permission details to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --chmod {{ file_permission }}:{{ guest_file }}"
+
+- name: Change permission to file in guest disk image [can be decimal or octal permission]
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

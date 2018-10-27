@@ -1,0 +1,10 @@
+- name: Assign run-command to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --run-command '{{ other['run']['command'] }}'"
+
+- name: Run command in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

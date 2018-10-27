@@ -1,0 +1,16 @@
+- name: Parse file details
+  set_fact:
+    guest_file: "{{ other['edit'].split(':')[0] }}"
+    regex: "{{ other['edit'].split(':')[1] }}"
+  failed_when: other['edit'].split(':')[1] is not defined
+
+- name: Assign file details to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --edit '{{ guest_file }}:{{ regex }}'"
+
+- name: Edit file's content using perl's regular expression in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

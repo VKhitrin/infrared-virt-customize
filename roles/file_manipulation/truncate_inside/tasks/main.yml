@@ -1,0 +1,10 @@
+- name: Assign file to truncate in guest disk image to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --truncate {{ other['truncate'] }}"
+
+- name: Edit content in a file in guest disk image using perl's regular expression
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

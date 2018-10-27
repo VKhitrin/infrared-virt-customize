@@ -1,0 +1,24 @@
+- name: Genrate temp filename
+  set_fact:
+    remote_file: "/tmp/{{ other['firstboot']['file'] | to_uuid }}"
+
+- name: Copy file from infrared client to executor host
+  copy:
+    src: "{{ other['firstboot']['file'] }}"
+    dest: "{{ remote_file }}"
+
+- name: Assign firstboot file to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --firstboot {{ remote_file }}"
+
+- name: Execute a script on guest disk image on firstboot
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"
+
+- name: Delete temp file
+  file:
+    path: "{{ remote_file }}"
+    state: absent

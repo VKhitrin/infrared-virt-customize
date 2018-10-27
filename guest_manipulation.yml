@@ -8,7 +8,7 @@
 
      - name: Perform commands from file
        include_role:
-         name: commands_file
+         name: guest_manipulation/commands_file
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -18,7 +18,7 @@
 
      - name: Script file to be executed on guest disk image during firstboot
        include_role:
-         name: firstboot_file
+         name: guest_manipulation/firstboot_file
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -28,7 +28,7 @@
 
      - name: Command to be executed on guest disk image during firstboot
        include_role:
-         name: firstboot_command
+         name: guest_manipulation/firstboot_command
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -38,7 +38,7 @@
 
      - name: Sets a hostname in guest disk image
        include_role:
-         name: guest_hostname
+         name: guest_manipulation/guest_hostname
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -48,7 +48,7 @@
 
      - name: Sets a user's password in guest disk image
        include_role:
-         name: user_password
+         name: guest_manipulation/user_password
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -58,7 +58,7 @@
 
      - name: Sets a root's password in guest disk image
        include_role:
-         name: root_password
+         name: guest_manipulation/root_password
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -68,7 +68,7 @@
 
      - name: Run a program/script in guest disk image
        include_role:
-         name: run_script
+         name: guest_manipulation/run_script
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -78,7 +78,7 @@
 
      - name: Run a command in guest disk image
        include_role:
-         name: run_command
+         name: guest_manipulation/run_command
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -88,7 +88,7 @@
 
      - name: Inject SSH key to user in guest disk image
        include_role:
-         name: ssh_inject
+         name: guest_manipulation/ssh_inject
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -98,7 +98,7 @@
 
      - name: Set a default timezone in guest disk image
        include_role:
-         name: guest_timezone
+         name: guest_manipulation/guest_timezone
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
@@ -108,7 +108,7 @@
 
      - name: Relabel SELinux file contexts in guest disk image
        include_role:
-         name: selinux_relabel
+         name: guest_manipulation/selinux_relabel
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image

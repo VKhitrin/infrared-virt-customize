@@ -1,0 +1,16 @@
+- name: Parse file locations
+  set_fact:
+    guest_src_file: "{{ other['move']['inside'].split(':')[0] }}"
+    guest_dest_file: "{{ other['move']['inside'].split(':')[1] }}"
+  failed_when: other['move']['inside'].split(':')[1] is not defined
+
+- name: Assign guest src and guest dest files to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --move {{ guest_src_file }}:{{ guest_dest_file }}"
+
+- name: Move file/directories in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

@@ -1,0 +1,11 @@
+- name: Print virt-customize command
+  debug:
+    msg: "virt-customize {{ _vc_args }} -a {{ image }}"
+
+- name: Execute command
+  shell: >
+    virt-customize {{ _vc_args }}
+    -a {{ _image }}
+  environment:
+    LIBGUESTFS_BACKEND: "{{ LIBGUESTFS_BACKEND }}"
+    LIBGUESTFS_BACKEND_SETTINGS: "{{ LIBGUESTFS_BACKEND_SETTINGS }}"

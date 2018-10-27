@@ -1,0 +1,10 @@
+- name: Assign files to scrub in guest disk image to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --scrub {{ other['scrub'] }}"
+
+- name: Scrub file in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

@@ -1,0 +1,16 @@
+- name: Parse user details
+  set_fact:
+    guest_user: "{{ other['ssh']['inject'].split(':')[0] }}"
+    ssh_key: "{{ other['ssh']['inject'].split(':')[1] }}"
+  failed_when: other['ssh']['inject'].split(':')[1] is not defined
+
+- name: Assign user details to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --ssh-inject '{{ guest_user }}:string:{{ ssh_key }}'"
+
+- name: Inject SSH key to user in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

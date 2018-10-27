@@ -1,0 +1,16 @@
+- name: Parse permission details
+  set_fact:
+    guest_target: "{{ other['guest']['link'].split(':')[0] }}"
+    guest_file: "{{ other['guest']['link'].split(':')[1] }}"
+  failed_when: other['guest']['link'].split(':')[1] is not defined
+
+- name: Assign permission details to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --link {{ guest_target }}:{{ guest_file }}"
+
+- name: Create symbolic link to file in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

@@ -1,0 +1,16 @@
+- name: Parse file details
+  set_fact:
+    guest_file: "{{ other['append']['line'].split(':')[0] }}"
+    file_line: "{{ other['append']['line'].split(':')[1] }}"
+  failed_when: other['append']['line'].split(':')[1] is not defined
+
+- name: Assign file details to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --append-line {{ guest_file }}:{{ file_line }}"
+
+- name: Append line to file in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

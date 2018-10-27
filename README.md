@@ -90,146 +90,146 @@ List of packages to be uninstalled from guest disk image (required=False):
 infrared virt-customize --image '/path/to/image' --uninstall package1,package2
 ```
 
-Update packages on guest disk iamge (required=False):
+Update packages on guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --update yes
 ```
 
-Install packages on guest disk iamge on firstboot (required=False):
+Install packages on guest disk image on firstboot (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --firstboot-install package1,package2
 ```
 
 #### Guest manipulation
 
-Run virt-customize commands from file on guest disk iamge (required=False):
+Run virt-customize commands from file on guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --commands-file /path/to/commands-file
 ```
 
-Execute a script on guest disk iamge on firstboot (required=False):
+Execute a script on guest disk image on firstboot (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --firstboot /path/to/file
 ```
 
-Execute a command on guest disk iamge on firstboot (required=False):
+Execute a command on guest disk image on firstboot (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --firstboot-command command
 ```
 
-Set a hostname in guest disk iamge (required=False):
+Set a hostname in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-hostname hostname
 ```
 
-Set a user's password in guest disk iamge (required=False):
+Set a user's password in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --user-password user:password
 ```
 
-Set root's password in guest disk iamge (required=False):
+Set root's password in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --root-password password
 ```
 
-Run script (located on disk-image) in guest disk iamge (required=False):
+Run script (located on disk-image) in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --run-script script
 ```
 
-Run command in guest disk iamge (required=False):
+Run command in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --run-command command
 ```
 
-Inject SSH key to user in guest disk iamge (required=False):
+Inject SSH key to user in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --ssh-inject user:ssh_key
 ```
 
-Set a timezone in guest disk iamge (required=False):
+Set a timezone in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-timezone timezone
 ```
 
-Relabel SELinux file contexets in guest disk iamge (required=False):
+Relabel SELinux file contexets in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --selinux-relabel yes
 ```
 
 #### File manipulation
 
-Copy files inside guest disk iamge (required=False):
+Copy files inside guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --copy-inside /path/to/source:/path/to/dest
 ```
 
-Copy files from infrared client to guest disk iamge (required=False):
+Copy files from infrared client to guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path/to/dest
 ```
 
-Delete files in guest disk iamge (required=False):
+Delete files in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --delete /path/to/file
 ```
 
-Append line to file in guest disk iamge (required=False):
+Append line to file in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --append-line /path/to/file:line
 ```
 
-Change permission to file in guest disk iamge \[can be decimal or octal permission\] (required=False):
+Change permission to file in guest disk image \[can be decimal or octal permission\] (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-permission permission:/path/to/file
 ```
 
-Create symbolic link to file in guest disk iamge (required=False):
+Create symbolic link to file in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-link /path/to/target:/path/to/file
 ```
 
-Create directories in guest disk iamge (required=False):
+Create directories in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-directory /path/to/directory
 ```
 
-Move file/sdirectories in guest disk iamge (required=False):
+Move file/directories in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --move-inside /path/to/source:/path/to/dest
 ```
 
-Scrub file in guest disk iamge (required=False):
+Scrub file in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --scrub /path/to/file
 ```
 
-Truncate file to zero length in guest disk iamge (required=False):
+Truncate file to zero length in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --truncate /path/to/file
 ```
 
-Truncate path to zero length in guest disk iamge (required=False):
+Truncate path to zero length in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --truncate-recursive /path/to/file
 ```
 
-Create a file in guest disk iamge (required=False):
+Create a file in guest disk image (required=False):
 ```
-infrared virt-customize --image '/path/to/image' --touch /path/to/file
+infrared virt-customize --image '/path/to/image' --create /path/to/file
 ```
 
-Copy file from infrared client to guest disk iamge while preserving permissions (required=False):
+Copy file from infrared client to guest disk image while preserving permissions (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --upload-to /path/to/source:/path/to/dest
 ```
 
-Write content to file in guest disk iamge (required=False):
+Write content to file in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --write-content /path/to/file:content
 ```
 
-Edit file's content using perl's regular expression in guest disk image:
+Edit file's content using perl's regular expression in guest disk image (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --edit /path/to/file:perl_reg_expression
 ```

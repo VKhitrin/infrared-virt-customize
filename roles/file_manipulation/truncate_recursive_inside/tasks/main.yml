@@ -1,0 +1,10 @@
+- name: Assign path to truncate in guest disk image to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --truncate-recursive {{ other['truncate']['recursive'] }}"
+
+- name: Truncate path to zero length in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"

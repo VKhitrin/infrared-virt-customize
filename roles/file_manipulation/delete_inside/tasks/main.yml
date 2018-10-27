@@ -1,0 +1,10 @@
+- name: Assign files to delete in guest disk image to virt-customize arg
+  set_fact:
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --delete {{ other['delete'] }}"
+
+- name: Delete files in guest disk image
+  include_role:
+    name: execute_command
+  vars:
+    _vc_args: "{{ vc_args }}"
+    _image: "{{ image }}"
