@@ -131,3 +131,8 @@ Set a user's password in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --user-password user:password
 ```
+
+Set root's password in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --root-password password
+```

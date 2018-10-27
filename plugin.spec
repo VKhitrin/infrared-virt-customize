@@ -100,6 +100,10 @@ subparsers:
                      type: Value
                      help: "Sets user's password inside guest disk image"
                      required: false
+                 root-password:
+                     type: Value
+                     help: "Sets root's password inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:
