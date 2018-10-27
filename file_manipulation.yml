@@ -120,3 +120,13 @@
        loop_control:
          loop_var: image
        when: other['create'] is defined
+
+     - name: Perform upload from executor host to guest disk image
+       include_role:
+         name: upload_to
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['upload'] is defined
+         - other['upload']['to'] is defined

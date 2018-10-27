@@ -203,3 +203,8 @@ Create a file in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --touch /path/to/file
 ```
+
+Copy file from infrared client to guest disk iamge while preserving permissions (required=False):
+```
+infrared virt-customize --image '/path/to/image' --upload-to /path/to/source:/path/to/dest
+```
