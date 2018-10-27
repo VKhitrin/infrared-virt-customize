@@ -26,3 +26,13 @@
        when:
         - other['sm'] is defined
         - other['sm']['attach'] is defined
+
+     - name: Remove subscriptions from guest disk image
+       include_role:
+         name: subscription_manager_manipulation/remove_subscriptions
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+        - other['sm'] is defined
+        - other['sm']['remove']

@@ -203,6 +203,11 @@ subparsers:
                      type: Value
                      help: "Attach pool to guest disk image"
                      required: false
+                 sm-remove:
+                     type: Bool
+                     help: "Remove all subscriptions from guest disk image"
+                     default: False
+                     required: false
 
             - title: ansible facts
               options:

@@ -88,6 +88,11 @@ Attach a subscription to guest disk image:
 infrared virt-customize --image '/path/to/image' --sm-attach poolid
 ```
 
+Remove all subscriptions from guest disk image:
+```
+infrared virt-customize --image '/path/to/image' --sm-remove yes
+```
+
 #### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):
