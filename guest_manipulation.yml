@@ -54,3 +54,13 @@
        when:
          - other['firstboot'] is defined
          - other['firstboot']['file'] is defined
+
+     - name: Command to be executed on guest disk image during firstboot
+       include_role:
+         name: firstboot_command
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['firstboot'] is defined
+         - other['firstboot']['command'] is defined

@@ -88,6 +88,10 @@ subparsers:
                      type: FileValue
                      help: 'Script to run on guest disk image during firstboot'
                      required: false
+                 firstboot-command:
+                     type: Value
+                     help: 'Command to run on guest disk image during firstboot'
+                     required: false
 
             - title: ansible facts
               options:

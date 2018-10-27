@@ -116,3 +116,8 @@ Execute a script on guest disk iamge on firstboot (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --firstboot /path/to/file
 ```
+
+Execute a command on guest disk iamge on firstboot (required=False):
+```
+infrared virt-customize --image '/path/to/image' --firstboot-command command
+```
