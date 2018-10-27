@@ -198,3 +198,8 @@ Truncate path to zero length in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --truncate-recursive /path/to/file
 ```
+
+Create a file in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --touch /path/to/file
+```

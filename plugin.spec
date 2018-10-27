@@ -157,6 +157,10 @@ subparsers:
                      type: Value
                      help: "Truncate files/directories recursively inside guest disk image"
                      required: false
+                 create:
+                     type: Value
+                     help: "Create a file inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

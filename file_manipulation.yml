@@ -112,3 +112,11 @@
        when:
          - other['truncate'] is defined
          - other['truncate']['recursive'] is defined
+
+     - name: Create a file in guest disk image
+       include_role:
+         name: create_inside
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when: other['create'] is defined
