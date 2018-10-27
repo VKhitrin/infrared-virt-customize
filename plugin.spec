@@ -208,6 +208,11 @@ subparsers:
                      help: "Remove all subscriptions from guest disk image"
                      default: False
                      required: false
+                 sm-unregister:
+                     type: Bool
+                     help: "Unregister guest disk image from subscription manager"
+                     default: False
+                     required: false
 
             - title: ansible facts
               options:

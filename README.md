@@ -93,6 +93,11 @@ Remove all subscriptions from guest disk image:
 infrared virt-customize --image '/path/to/image' --sm-remove yes
 ```
 
+Unregister from subscription manager \[Works only if guest disk image is registered to subscription manager\] (required=False):
+```
+infrared virt-customize --image '/path/to/image' --sm-unregister yes 
+```
+
 #### Package manipulation
 
 List of packages to be installed on guest disk image (required=False):

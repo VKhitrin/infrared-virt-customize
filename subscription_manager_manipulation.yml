@@ -36,3 +36,13 @@
        when:
         - other['sm'] is defined
         - other['sm']['remove']
+
+     - name: Unregister from subscription manager
+       include_role:
+         name: subscription_manager_manipulation/unregister_from_subscription_manager
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+        - other['sm'] is defined
+        - other['sm']['unregister']
