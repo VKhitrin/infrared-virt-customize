@@ -36,4 +36,6 @@
        with_items: "{{ hostvars['localhost']['images'] }}"
        loop_control:
          loop_var: image
-       when: other['firstboot']['install']
+       when:
+         - other['firstboot'] is defined
+         - other['firstboot']['install'] is defined

@@ -69,7 +69,6 @@ subparsers:
                      type: Value
                      help: 'Packages to install on guest disk image during firstboot'
                      required: false
-                     default: False
                  commands-file:
                      type: FileValue
                      help: 'Customize commands to be executed from file'
@@ -85,6 +84,10 @@ subparsers:
                  delete:
                      type: Value
                      help: 'Delete files/directories on guest disk image'
+                 firstboot-file:
+                     type: FileValue
+                     help: 'Script to run on guest disk image during firstboot'
+                     required: false
 
             - title: ansible facts
               options:

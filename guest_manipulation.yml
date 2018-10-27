@@ -44,3 +44,13 @@
          loop_var: image
        when:
          - other['delete'] is defined
+
+     - name: Script file to be executed on guest disk image during firstboot
+       include_role:
+         name: firstboot_file
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['firstboot'] is defined
+         - other['firstboot']['file'] is defined

@@ -102,7 +102,7 @@ Copy files inside guest disk iamge (required=False):
 infrared virt-customize --image '/path/to/image' --copy-inside /path/to/source:/path/to/dest
 ```
 
-Copy files from host to guest disk iamge (required=False):
+Copy files from infrared client to guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path/to/dest
 ```
@@ -110,4 +110,9 @@ infrared virt-customize --image '/path/to/image' --copy-to /path/to/source:/path
 Delete files in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --delete /path/to/file
+```
+
+Execute a script on guest disk iamge on firstboot (required=False):
+```
+infrared virt-customize --image '/path/to/image' --firstboot /path/to/file
 ```
