@@ -94,3 +94,13 @@
        when:
          - other['root'] is defined
          - other['root']['password'] is defined
+
+     - name: Run a program/script in guest disk image
+       include_role:
+         name: run_script
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['run'] is defined
+         - other['run']['script'] is defined

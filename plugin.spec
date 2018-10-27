@@ -104,6 +104,10 @@ subparsers:
                      type: Value
                      help: "Sets root's password inside guest disk image"
                      required: false
+                 run-script:
+                     type: Value
+                     help: "Run script inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

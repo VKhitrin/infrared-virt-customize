@@ -136,3 +136,8 @@ Set root's password in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --root-password password
 ```
+
+Run script (located on disk-image) in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --run script
+```
