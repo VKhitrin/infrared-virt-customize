@@ -74,3 +74,13 @@
        when:
          - other['guest'] is defined
          - other['guest']['hostname'] is defined
+
+     - name: Sets a user's password in guest disk image
+       include_role:
+         name: user_password
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['user'] is defined
+         - other['user']['password'] is defined

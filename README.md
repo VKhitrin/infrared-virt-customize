@@ -126,3 +126,8 @@ Set a hostname in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-hostname hostname
 ```
+
+Set a user's password in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --user-password user:password
+```

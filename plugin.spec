@@ -96,6 +96,10 @@ subparsers:
                      type: Value
                      help: 'Sets the hostname inside guest disk image'
                      required: false
+                 user-password:
+                     type: Value
+                     help: "Sets user's password inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:
