@@ -173,3 +173,8 @@ Create symbolic link to file in guest disk iamge (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --guest-link /path/to/target:/path/to/file
 ```
+
+Create directories in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --guest-directory /path/to/directory
+```

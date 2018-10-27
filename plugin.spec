@@ -137,6 +137,10 @@ subparsers:
                      type: Value
                      help: "Create symbolic link to file inside guest disk image"
                      required: false
+                 guest-directory:
+                     type: Value
+                     help: "Creates directory inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:
