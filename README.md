@@ -208,3 +208,8 @@ Copy file from infrared client to guest disk iamge while preserving permissions 
 ```
 infrared virt-customize --image '/path/to/image' --upload-to /path/to/source:/path/to/dest
 ```
+
+Write content to file in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --write-content /path/to/file:content
+```

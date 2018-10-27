@@ -165,6 +165,10 @@ subparsers:
                      type: Value
                      help: "Upload a file from infrared client to guest disk image"
                      required: false
+                 write-content:
+                     type: Value
+                     help: "Write content into a file from inside guest disk image"
+                     required: false
 
             - title: ansible facts
               options:

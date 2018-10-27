@@ -130,3 +130,13 @@
        when:
          - other['upload'] is defined
          - other['upload']['to'] is defined
+
+     - name: Write content to file in guest disk image
+       include_role:
+         name: write_content
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['write'] is defined
+         - other['write']['content'] is defined
