@@ -64,3 +64,13 @@
        when:
          - other['firstboot'] is defined
          - other['firstboot']['command'] is defined
+
+     - name: Sets a hostname in guest disk image
+       include_role:
+         name: guest_hostname
+       with_items: "{{ hostvars['localhost']['images'] }}"
+       loop_control:
+         loop_var: image
+       when:
+         - other['guest'] is defined
+         - other['guest']['hostname'] is defined

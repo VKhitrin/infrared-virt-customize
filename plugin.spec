@@ -92,6 +92,10 @@ subparsers:
                      type: Value
                      help: 'Command to run on guest disk image during firstboot'
                      required: false
+                 guest-hostname:
+                     type: Value
+                     help: 'Sets the hostname inside guest disk image'
+                     required: false
 
             - title: ansible facts
               options:

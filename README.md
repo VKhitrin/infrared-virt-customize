@@ -121,3 +121,8 @@ Execute a command on guest disk iamge on firstboot (required=False):
 ```
 infrared virt-customize --image '/path/to/image' --firstboot-command command
 ```
+
+Set a hostname in guest disk iamge (required=False):
+```
+infrared virt-customize --image '/path/to/image' --guest-hostname hostname
+```
