@@ -24,10 +24,22 @@ subparsers:
 
             - title: image
               options:
-                  image:
+                  image-remote:
                       type: Value
-                      help: 'Comma seperated list of images to be invoked upon'
-                      required: yes
+                      help: 'Comma seperated list of images to be invoked upon located on remote host'
+                      required: false
+                  image-url:
+                      type: Value
+                      help: 'Comma seperated list of images to be invoked upon located on the web'
+                      required: false
+                  image-local:
+                      type: Value
+                      help: 'Comma seperated list of images to be invoked upon located on local client'
+                      required: false
+                  image-path:
+                      type: Value
+                      help: 'Directory on the remote hosts that will contained fetched images (when required)'
+                      default: '/tmp'
 
             - title: virt-customize variables
               options:

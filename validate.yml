@@ -5,6 +5,33 @@
   any_errors_fatal: true
   tasks:
 
+     - name: image-remote, image-url and image-local are mutually exclusive
+       block:
+         - fail:
+             msg: "image-remote, image-url and image-local are mutually exclusive"
+           when:
+             - other['image'] is defined
+             - (other['image']['remote'] is defined and other['image']['url'] is defined) or
+               (other['image']['remote'] is defined and other['image']['local'] is defined) or
+               (other['image']['url'] is defined and other['image']['local'] is defined)
+
+         - set_fact:
+             images: "{{ other['image']['remote'] }}"
+           when: other['image']['remote'] is defined
+
+         - set_fact:
+             images: "{{ other['image']['url'] }}"
+             images_action: download
+           when: other['image']['url'] is defined
+
+         - set_fact:
+             images: "{{ other['image']['local'] }}"
+             images_action: transfer
+           when: other['image']['local'] is defined
+
+     - debug:
+         var: images
+
      - name: Set invocation host
        set_fact:
           other:
@@ -47,4 +74,4 @@
 
          - name: Parse images path
            set_fact:
-             images: "{{ other['image'].split(',') }}"
+             images: "{{ images.split(',') }}"

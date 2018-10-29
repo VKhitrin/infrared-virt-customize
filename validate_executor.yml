@@ -13,9 +13,65 @@
          - other['skip']['install'] is defined
          - other['skip']['install']['tools'] == false
 
+     - name: Set images variable
+       block:
+
+         - set_fact:
+             images: "[]"
+           when:
+             - other['image']['local'] is defined or other['image']['url'] is defined
+
+         - set_fact:
+             images: "{{ hostvars['localhost']['images'] }}"
+           when:
+             - other['image']['remote']
+     
+     - name: Copy images from client to executor host
+       block:
+         - copy:
+             src: "{{ item }}"
+             dest: "{{ other['image']['path'] }}"
+             mode: 0644
+           when:  
+             - hostvars['localhost']['images_action'] is defined
+             - hostvars['localhost']['images_action'] == "transfer"
+           with_items: "{{ hostvars['localhost']['images'] }}"
+           register: transfered_images
+
+         - set_fact:
+             images: "{{ images }} + ['{{ item['path'] }}']"
+           with_items: "{{ transfered_images['results'] }}"
+           when:
+             - hostvars['localhost']['images_action'] is defined
+             - hostvars['localhost']['images_action'] == "transfer"
+
+
+     - name: Download images on executor host
+       block:
+         - get_url:
+             url: "{{ item }}"
+             dest: "{{ other['image']['path'] }}"
+             validate_certs: no
+           when:
+             - hostvars['localhost']['images_action'] is defined
+             - hostvars['localhost']['images_action'] == "download"
+           with_items: "{{ hostvars['localhost']['images'] }}"
+           register: downloaded_images
+
+         - set_fact:
+             images: "{{ images }} + ['{{ item['dest'] }}']"
+           with_items: "{{ downloaded_images['results'] }}"
+           when:
+             - hostvars['localhost']['images_action'] is defined
+             - hostvars['localhost']['images_action'] == "download"
+
+     - debug:
+         var: images
+
      - name: Verify existence of images on executor host
        stat:
          path: "{{ item }}"
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        failed_when: file_existence['stat']['exists'] == false
        register: file_existence
+
