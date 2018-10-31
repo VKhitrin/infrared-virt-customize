@@ -9,7 +9,7 @@
      - name: Perform copy from executor host to guest disk image
        include_role:
          name: file_manipulation/copy_to
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -19,7 +19,7 @@
      - name: Perform copy inside guest disk image
        include_role:
          name: file_manipulation/copy_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -29,7 +29,7 @@
      - name: Perform delete inside guest disk image
        include_role:
          name: file_manipulation/delete_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -38,7 +38,7 @@
      - name: Append line to file in guest disk image
        include_role:
          name: file_manipulation/append_line
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -48,7 +48,7 @@
      - name: Change file/directory permission in guest disk image
        include_role:
          name: file_manipulation/guest_permission
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -58,7 +58,7 @@
      - name: Create symbolic link to file in guest disk image
        include_role:
          name: file_manipulation/guest_link
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -68,7 +68,7 @@
      - name: Create directory in guest disk image
        include_role:
          name: file_manipulation/guest_directory
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -78,7 +78,7 @@
      - name: Move file/directory in guest disk image
        include_role:
          name: file_manipulation/move_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -88,7 +88,7 @@
      - name: Scrub file in guest disk image
        include_role:
          name: file_manipulation/scrub_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when: 
@@ -98,7 +98,7 @@
      - name: Truncate file in guest disk image
        include_role:
          name: file_manipulation/truncate_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -108,7 +108,7 @@
      - name: Truncate path in guest disk image
        include_role:
          name: file_manipulation/truncate_recursive_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -118,7 +118,7 @@
      - name: Create a file in guest disk image
        include_role:
          name: file_manipulation/create_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when: other['create'] is defined
@@ -126,7 +126,7 @@
      - name: Perform upload from executor host to guest disk image
        include_role:
          name: file_manipulation/upload_to
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -136,7 +136,7 @@
      - name: Write content to file in guest disk image
        include_role:
          name: file_manipulation/write_content
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:
@@ -146,7 +146,7 @@
      - name: Edit content in a file in guest disk image using perl's regular expression
        include_role:
          name: file_manipulation/edit_inside
-       with_items: "{{ hostvars['localhost']['images'] }}"
+       with_items: "{{ images }}"
        loop_control:
          loop_var: image
        when:

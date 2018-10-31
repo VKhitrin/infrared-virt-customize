@@ -29,15 +29,6 @@
              images_action: transfer
            when: other['image']['local'] is defined
 
-     - debug:
-         var: images
-
-     - name: Set invocation host
-       set_fact:
-          other:
-            host:
-              address: "{{ other['host']['address'] }}"
-
      - name: Set virt-customize variables
        block:
          - name: Create variable

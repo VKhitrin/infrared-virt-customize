@@ -6,13 +6,13 @@ subparsers:
         description: Customize virtual disk images
         include_groups: ["Ansible options", "Inventory", "Common options", "Answers file"]
         groups:
-            - title: node
+            - title: host
               options:
                   host-address:
                       type: Value
                       help: 'Address/FQDN of the invoker host'
-                      required: yes
-                      default: undercloud
+                      required: false
+                      default: 'undercloud'
                   host-user:
                       type: Value
                       help: 'User to SSH to the host with'
