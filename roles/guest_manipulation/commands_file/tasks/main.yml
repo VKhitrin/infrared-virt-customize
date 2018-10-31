@@ -1,15 +1,18 @@
-- name: Genrate temp filename
-  set_fact:
-    remote_file: "/tmp/{{ other['commands']['file'] | to_uuid }}"
+- name: Remote actions
+  block:
+    - name: Genrate temp filename
+      set_fact:
+        remote_file: "/tmp/{{ other['commands']['file'] | to_uuid }}"
 
-- name: Copy file from infrared client to executor host
-  copy:
-    src: "{{ other['commands']['file'] }}"
-    dest: "{{ remote_file }}"
+    - name: Copy file from infrared client to executor host
+      copy:
+        src: "{{ other['commands']['file'] }}"
+        dest: "{{ remote_file }}"
+  when: other['host']['address'] != "localhost"
 
 - name: Assign commands-file to virt-customize arg
   set_fact:
-    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --commands-from-file {{ remote_file }}"
+    vc_args: "{{ hostvars['localhost']['_vc_args'] }} --commands-from-file {{ remote_file | default(other['commands']['file']) }}"
 
 - name: Run virt-customize commands from file on guest disk image
   include_role:
@@ -22,3 +25,4 @@
   file:
     path: "{{ remote_file }}"
     state: absent
+  when: other['host']['address'] != "localhost"
