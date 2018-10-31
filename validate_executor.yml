@@ -1,5 +1,4 @@
 - name: Perform prerequsites on - {{ other.host.address }}
-  #hosts: "{{ other.host.address | default(undercloud) }}"
   hosts: "{{ other.host.address }}"
   gather_facts: no
   any_errors_fatal: true
@@ -21,12 +20,13 @@
              images: "[]"
            when:
              - other['image']['local'] is defined or other['image']['url'] is defined
+             - other['host']['address'] != "localhost"
 
          - set_fact:
              images: "{{ hostvars['localhost']['images'] }}"
            when:
              - other['image']['remote'] is defined
-     
+
      - name: Copy images from client to executor host
        block:
          - copy:
@@ -36,6 +36,7 @@
            when:  
              - hostvars['localhost']['images_action'] is defined
              - hostvars['localhost']['images_action'] == "transfer"
+             - other['host']['address'] != "localhost"
            with_items: "{{ hostvars['localhost']['images'] }}"
            register: transfered_images
 
@@ -45,6 +46,7 @@
            when:
              - hostvars['localhost']['images_action'] is defined
              - hostvars['localhost']['images_action'] == "transfer"
+             - other['host']['address'] != "localhost"
 
      - name: Download images on executor host
        block:
@@ -70,7 +72,7 @@
          path: "{{ item }}"
        with_items: "{{ images }}"
        when:
-         - other['image']['local'] is not defined 
+         - (other['image']['local'] is not defined) or (other['host']['address'] == "localhost")
          - other['image']['url'] is not defined
        failed_when: file_existence['stat']['exists'] == false
        register: file_existence

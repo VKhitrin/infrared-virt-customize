@@ -34,6 +34,19 @@ infrared plugin add https://github.com/VKhitrin/infrared-virt-customize
 
 **See notes on the top for some limitations in place at the moment**
 
+#### Specifying executor host
+
+By default, this plugin will be executed on remote undercloud node:
+```
+infrared virt-customize --image-host '/path/to/image' --install vim
+```
+
+If you don't have undercloud installed or want to run locally:
+```
+infrared virt-customize --host-address localhost --image-host '/path/to/image' --install vim
+```
+
+
 #### General arguments
 
 **Only one image-\* option can be supplied**
