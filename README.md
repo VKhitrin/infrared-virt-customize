@@ -163,7 +163,7 @@ infrared virt-customize --image-* '/path/to/image' --commands-file /path/to/comm
 
 Execute a script on guest disk image on firstboot (required=False):
 ```
-infrared virt-customize --image-* '/path/to/image' --firstboot /path/to/file
+infrared virt-customize --image-* '/path/to/image' --firstboot-file /path/to/file
 ```
 
 Execute a command on guest disk image on firstboot (required=False):
