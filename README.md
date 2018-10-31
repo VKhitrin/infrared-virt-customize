@@ -10,9 +10,7 @@ Notes:
 
 * Not optimized to the way infrared works with variables at the moment
 
-* Assumes you have an undercloud node (OpenStack undercloud is deployed via infrared), no local and or remote node execution at the moment
-
-* Assumes that the user stack on undercloud node has rw permissions to guest disk image
+* Assumes that the user running virt-customize has rw permission to guest disk image
 
 * Assumes repos are configured on guest disk image
 
@@ -46,6 +44,10 @@ If you don't have undercloud installed or want to run locally:
 infrared virt-customize --host-address localhost --image-host '/path/to/image' --install vim
 ```
 
+If you wish to run the plugin on remote host, you can specify host-user (by default is root) and you must specify host-key (SSH private key that can log to remote machine):
+```
+infrared virt-customize --host-address remote.my.domain --host-user root --host-key ~/.ssh/id_rsa --image-host '/path/to/image' --install vim
+```
 
 #### General arguments
 

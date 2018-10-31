@@ -15,7 +15,6 @@
 
      - name: Set images variable
        block:
-
          - set_fact:
              images: "[]"
            when:

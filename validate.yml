@@ -29,6 +29,20 @@
              images_action: transfer
            when: other['image']['local'] is defined
 
+     - name: Set executor node
+       block:
+         - fail:
+             msg: "No SSH private key was supplied"
+           when: other['host']['key'] is not defined
+
+         - add_host:
+             name: "{{ other['host']['address'] }}"
+             ansible_ssh_host: "{{ other['host']['address'] }}"
+             ansible_ssh_user: "{{ other['host']['user'] }}"
+             ansible_ssh_private_key_file: "{{ other['host']['key'] }}"
+       when:
+         - other['host']['address'] not in "['localhost', 'undercloud']"
+
      - name: Set virt-customize variables
        block:
          - name: Create variable
