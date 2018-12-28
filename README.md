@@ -1,6 +1,6 @@
 # Infrared virt-customize plugin
 
-**This is a POC**, if you're part of RedHat, contribute to the [design sheet](https://docs.google.com/document/d/142VmEXXUblwVXF249ZX0PhT8ZC2vQ-2NYSJopMFyiIk).
+**This is a demo plugin for infrared which is not maintained, if you want to consume virt-customize natively with Ansible refer to POC repo of [virt-customize-ansible-modules](https://github.com/VKhitrin/virt-customize-ansible-modules)**
 
 Notes:
 
